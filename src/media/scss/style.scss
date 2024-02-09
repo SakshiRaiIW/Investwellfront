@@ -1,0 +1,123 @@
+$custom-font: 'Arial', sans-serif;
+$gradient-start: #ffffff;
+$gradient-end: #d3d3d3; 
+
+body {
+    background-color: #ffffff; 
+    font-family: $custom-font;
+}
+
+.toastContainer {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    .toast {
+        padding: 20px;
+        font-size: larger;
+        font-weight: bolder;
+        background-color: #0e36a5;
+        color: white;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgb(5, 92, 133);
+        transition: opacity 0.5s ease-in-out;
+        font-family: $custom-font; 
+        text-align: center;
+    }
+    
+    .toast.hide {
+        opacity: 0;
+    }
+}
+
+.form, .signup {
+    text-align: center;
+    margin: 10% auto; 
+    width: 50vh;
+    height: 50vh; 
+    background-color: #ffffff; 
+    border-radius: 5px; 
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3); 
+
+    @media screen and (max-width: 1280px) {
+        width: 55%;
+    }
+
+    @media screen and (max-width: 1024px) {
+        width: 60%;
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 70%;
+        margin-top: 20%;
+    }
+
+    @media screen and (max-width: 600px) {
+        width: 80%;
+        margin-top: 25%;
+    }
+
+    @media screen and (max-width: 480px) {
+        width: 90%;
+        margin-top: 30%;
+    }
+
+    .inputFields {
+        margin-bottom: 15px;
+        margin-top: 1vh;
+        padding: 10px;
+        font-size: larger;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+        transition: box-shadow 0.3s ease; 
+        color: #333; 
+
+        &::placeholder {
+            color: #999; 
+            font-style: italic; 
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5), 0 0 10px rgba(0,0,0,0.3); 
+        }
+    }
+
+    .btn , .showBtn {
+        margin-top: 1vh;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        font-size: larger;
+        background-color: black; 
+        color: white;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(45, 49, 49);
+        }
+    }
+
+    .redirectLink {
+        font-size: larger;
+        padding-top: 10px;
+        text-decoration: none;
+        color: blue;
+    }
+}
+
+.home {
+    margin-top: 40vh;
+    text-align: center;
+
+    @media screen and (max-width: 768px) {
+        margin-top: 20vh;
+    }
+
+    @media screen and (max-width: 420px) {
+        margin-top: 10vh;
+    }
+}
