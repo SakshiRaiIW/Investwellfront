@@ -3,7 +3,7 @@ import axios from 'axios';
 import LoginForm from './loginForm';
 import { useNavigate } from 'react-router-dom';
 
-const Main = () => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [result, setResult] = useState('');
@@ -33,4 +33,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Login;
