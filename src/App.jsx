@@ -5,6 +5,8 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './ui-collections/Home/home';
 import Login from './ui-collections/Login/login';
 import SignUp from './ui-collections/Signup/signup';
+import PolicyDocs from './ui-collections/policy_docs/table';
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/signup' element={<SignUp/>}></Route>
           <Route path='/home' element={<Home/>}></Route>
+          <Route path='/policyTable' element={<PolicyDocs/>}></Route>
         </Routes>
       </BrowserRouter>
     </>
