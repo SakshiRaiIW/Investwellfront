@@ -1,0 +1,224 @@
+$custom-font: 'Arial', sans-serif;
+$gradient-start: #ffffff;
+$gradient-end: #d3d3d3; 
+
+body {
+    background-color: #ffffff; 
+    font-family: $custom-font;
+}
+
+.toastContainer {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    .toast {
+        padding: 20px;
+        font-size: larger;
+        font-weight: bolder;
+        background-color: #0e36a5;
+        color: white;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgb(5, 92, 133);
+        transition: opacity 0.5s ease-in-out;
+        font-family: $custom-font; 
+        text-align: center;
+    }
+    
+    .toast.hide {
+        opacity: 0;
+    }
+}
+
+.form, .signup {
+    text-align: center;
+    margin: 10% auto; 
+    width: 50vh;
+    height: 50vh; 
+    background-color: #ffffff; 
+    border-radius: 5px; 
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3); 
+
+    @media screen and (max-width: 1280px) {
+        width: 55%;
+    }
+
+    @media screen and (max-width: 1024px) {
+        width: 60%;
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 70%;
+        margin-top: 20%;
+    }
+
+    @media screen and (max-width: 600px) {
+        width: 80%;
+        margin-top: 25%;
+    }
+
+    @media screen and (max-width: 480px) {
+        width: 90%;
+        margin-top: 30%;
+    }
+
+    .inputFields {
+        margin-bottom: 15px;
+        margin-top: 1vh;
+        padding: 10px;
+        font-size: larger;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+        transition: box-shadow 0.3s ease; 
+        color: #333; 
+
+        &::placeholder {
+            color: #999; 
+            font-style: italic; 
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5), 0 0 10px rgba(0,0,0,0.3); 
+        }
+    }
+
+    .btn , .showBtn {
+        margin-top: 1vh;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        font-size: larger;
+        background-color: black; 
+        color: white;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(45, 49, 49);
+        }
+    }
+
+    .redirectLink {
+        font-size: larger;
+        padding-top: 10px;
+        text-decoration: none;
+        color: blue;
+    }
+}
+
+.home {
+    margin-top: 40vh;
+    text-align: center;
+
+    @media screen and (max-width: 768px) {
+        margin-top: 20vh;
+    }
+
+    @media screen and (max-width: 420px) {
+        margin-top: 10vh;
+    }
+}
+
+
+// css
+.navbar {
+    .hamburgerIcon {
+      width: 3vw;
+      height: 6vh;
+      cursor: pointer;
+    }
+  
+    .navbarItems {
+      position: fixed;
+      background-color: #000000; // Dark background color
+      width: 12vw;
+      height: fit-content;
+      padding-top: 3vh;
+      list-style: none;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+  
+      &.show {
+        transform: translateX(0);
+      }
+  
+      li {
+        padding-bottom: 1rem;
+        &:last-child {
+          padding-bottom: 0;
+        }
+      }
+  
+      .navbarLinks {
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: #fff; // White text color
+        display: block;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: #000000; // Darker background color on hover
+        }
+      }
+    }
+  }
+
+  .policyTableWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.policyTable {
+    width: 80%; // Adjust width as needed
+    border-collapse: collapse;
+
+    caption.policyCaption {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #000000; // Example color
+  }
+
+
+    th {
+        background-color: #f2f2f2;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    td {
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .pdfButton {
+        background-color: black; // Set background to transparent
+        color: rgb(255, 255, 255); // Set text color
+        border: 2px solid black; // Set black solid border
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: black;
+            color: rgb(0, 0, 0);
+        }
+    }
+}
+
+
+  .logoutIcon{
+    margin-left :93%;
+    width: 3vw;
+    height: 6vh;
+    cursor: pointer;
+    
+  }
