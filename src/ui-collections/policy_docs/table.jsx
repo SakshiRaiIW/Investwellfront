@@ -16,7 +16,8 @@ const PolicyDocs = () => {
             }
         };
     
-        fetchData(); 
+        fetchData();
+        
     }, []); 
      
     const handlePdf = async () => {
