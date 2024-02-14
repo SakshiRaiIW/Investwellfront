@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; 
+import { useLocation } from 'react-router-dom';
+const path = require("path");
 
 const PolicyDocs = () => {
     const [policyData, setPolicyData] = useState([]);
@@ -17,24 +19,20 @@ const PolicyDocs = () => {
         fetchData(); 
     }, []); 
      
-    function removeWord(str,word){
-        const ind = str.indexOf(word);
-        if(ind !== -1){
-            return str.substring(ind + word.length);
+    const handlePdf = async () => {
+        try {
+          const response = await axios.get('http://localhost:8000/getpolicydata' , { responseType: 'blob' });
+          console.log(response);
+          const blob = new Blob([response.data] , { type: 'application/pdf' });
+          console.log(response.data);
+          const pdf = URL.createObjectURL(blob);
+          console.log(pdf);
+          window.open(pdf, '_blank');
+        } catch (error) {
+          console.error('Error fetching PDF:', error);
         }
-        return str;
-    }
-
-    const openPdf = async() => {
-        const response = await axios.get('http://localhost:8000/getpolicydata')
-        console.log(response.data.result);
-        const PDFpath = response.data.result;
-
-        const str = removeWord(PDFpath, 'public');
-        console.log(str);
-        window.open(str,'_blank'); 
-    };
-
+      };
+      
     return (
         <div className="policyTableWrapper"> 
             <table className='policyTable'>
@@ -52,7 +50,7 @@ const PolicyDocs = () => {
                             <td className='policyData'>{policy.id}</td>
                             <td className='policyData'>{policy.name}</td>
                             <td className='policyData'>
-                                <button className='pdfButton' onClick={() => openPdf()}>PDF</button>
+                                <button className='pdfButton' onClick={() => handlePdf()}>PDF</button>
                             </td>
                         </tr>
                     ))}
@@ -63,64 +61,3 @@ const PolicyDocs = () => {
 };
 
 export default PolicyDocs;
-
-
-
-
-
-// import React from 'react'
-
-// const PolicyDocs = () => {
-//     const openPdf = () => {
-//         window.open("https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf", "_blank")
-//     }
-    
-// return (
-//     <>
-//         <table className='policyTable'>
-//             <caption className='policyData'>Policy Docs</caption>
-//             <thead>
-//                 <tr>
-//                     <th className='policyData'>S.No</th>
-//                     <th className='policyData'>Policy Name</th>
-//                     <th className='policyData'>Action</th>
-//                 </tr>
-//             </thead>
-//             <tbody>
-//                 <tr>
-//                     <td className='policyData'>1</td>
-//                     <td className='policyData'>Attendance</td>
-//                     <td className='policyData'><button onClick={openPdf}> PDF </button></td>
-//                 </tr>
-//                 <tr>
-//                     <td className='policyData'>2</td>
-//                     <td className='policyData'>Leave</td>
-//                     <td className='policyData'><button onClick={openPdf}> PDF </button></td>
-//                 </tr>
-//                 <tr>
-//                     <td className='policyData'>3</td>
-//                     <td className='policyData'>Employee</td>
-//                     <td className='policyData'><button onClick={openPdf}> PDF </button></td>
-//                 </tr>
-//                 <tr>
-//                     <td className='policyData'>4</td>
-//                     <td className='policyData'>Abc</td>
-//                     <td className='policyData'><button onClick={openPdf}> PDF </button></td>
-//                 </tr>
-//                 <tr>
-//                     <td className='policyData'>5</td>
-//                     <td className='policyData'>Def</td>
-//                     <td className='policyData'><button onClick={openPdf}> PDF </button></td>
-//                 </tr>
-//                 <tr>
-//                     <td className='policyData'>6</td>
-//                     <td className='policyData'>xyz</td>
-//                     <td className='policyData'><button onClick={openPdf}> PDF </button></td>
-//                 </tr>
-//             </tbody>
-//         </table>
-//     </>
-//   )
-// }
-
-// export default PolicyDocs;
